@@ -1,0 +1,138 @@
+body {
+  background-image: url(images/pattern-hills.svg);
+  background-repeat: no-repeat;
+  background-size: 100% 30%;
+  background-position: bottom;
+  height: 100vh;
+  background: linear-gradient(hsl(266deg, 38%, 12%), hsl(267deg, 32%, 18%), hsl(267deg, 27%, 28%));
+  overflow: hidden;
+  margin: 0;
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  font-family: "Red Hat Text", sans-serif;
+  grid-template-rows: repeat(8, 80px);
+}
+
+.mountain {
+  width: 100%;
+  height: 20%;
+  position: absolute;
+  bottom: -10px;
+}
+
+.stars {
+  width: 100%;
+  height: 75%;
+  position: absolute;
+  top: 0;
+  z-index: -1;
+}
+
+.header {
+  font-size: 25px;
+  color: white;
+  text-align: center;
+  grid-area: 1/1;
+  text-transform: uppercase;
+  letter-spacing: 10px;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(4, 150px);
+  grid-template-rows: repeat(1, 60px);
+  grid-auto-flow: column;
+  justify-content: center;
+  text-align: center;
+  -moz-column-gap: 20px;
+       column-gap: 20px;
+  grid-area: 4/1;
+}
+.container .top, .container .flip-clock .flip-top {
+  background: hsl(236deg, 15%, 18%);
+  overflow: hidden;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+.container .bottom, .container .flip-clock .flip-bottom {
+  background: hsl(236deg, 21%, 26%);
+  display: block;
+  align-items: flex-end;
+  justify-content: center;
+  display: flex;
+  overflow: hidden;
+  z-index: 1;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+.container .numbers, .container .flip-clock .flip-top, .container .flip-clock .flip-bottom {
+  width: 150px;
+  height: 60px;
+  font-size: 90px;
+  vertical-align: middle;
+  line-height: 1.33;
+  color: hsl(345deg, 95%, 68%);
+}
+.container .time {
+  color: hsl(237deg, 18%, 59%);
+  font-size: 20px;
+}
+.container .flip-clock {
+  position: relative;
+}
+.container .flip-clock .flip-top {
+  position: absolute;
+  content: "08";
+  right: 0px;
+  top: 0px;
+  -webkit-animation: flip-top 250ms ease-in;
+          animation: flip-top 250ms ease-in;
+  transform-origin: bottom;
+}
+.container .flip-clock .flip-bottom {
+  position: absolute;
+  content: "08";
+  top: 60px;
+  -webkit-animation: flip-bottom 250ms 250ms ease-in;
+          animation: flip-bottom 250ms 250ms ease-in;
+  transform-origin: top;
+  transform: rotateX(90deg);
+}
+
+@-webkit-keyframes flip-top {
+  100% {
+    transform: rotateX(90deg);
+  }
+}
+
+@keyframes flip-top {
+  100% {
+    transform: rotateX(90deg);
+  }
+}
+@-webkit-keyframes flip-bottom {
+  100% {
+    transform: rotateX(0deg);
+  }
+}
+@keyframes flip-bottom {
+  100% {
+    transform: rotateX(0deg);
+  }
+}
+@media screen and (max-width: 900px) {
+  .container {
+    zoom: 0.8;
+  }
+}
+@media screen and (max-width: 600px) {
+  .container {
+    zoom: 0.6;
+  }
+}
+@media screen and (max-width: 425px) {
+  .container {
+    zoom: 0.5;
+  }
+}/*# sourceMappingURL=style.css.map */
