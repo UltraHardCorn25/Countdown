@@ -1,6 +1,10 @@
 <?php
   $dateErr=$date='';
   session_start();
+  $days=0;
+  $hours= 0;
+  $min= 0;
+  $sec= 0;
   if(isset($_POST['submit'])){
     $date = filter_input(INPUT_POST,'date',FILTER_SANITIZE_SPECIAL_CHARS);
     $currentDate = date_create($date);
