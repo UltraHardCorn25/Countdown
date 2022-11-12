@@ -5,14 +5,18 @@ body{
     background-position: bottom;
     height: 100vh;
     background: linear-gradient(hsl(266, 38%, 12%),hsl(267, 32%, 18%),hsl(267, 27%, 28%));
-    overflow: hidden;
+    overflow-x: hidden;
     margin: 0;
     display: grid;
     justify-content: center;
     align-content: center;
     font-family: 'Red Hat Text', sans-serif;
     grid-template-rows: repeat(8,80px);
-    
+    -ms-overflow-style: none;  /* Internet Explorer 10+ */
+    scrollbar-width: none;  /* Firefox */
+}
+body::-webkit-scrollbar { 
+    display: none;  /* Safari and Chrome */
 }
 .mountain{
     width: 100%;
@@ -27,8 +31,56 @@ body{
     top:0;
     z-index: -1;
 }
+
 $textColor:hsl(237, 18%, 59%);
 $timeColor:hsl(345, 95%, 68%);
+
+.inputs{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    .label {
+        color:$textColor;
+        font-size: 25px;
+    }
+    .date{
+        width: 100%;
+        height: 30px;
+        font-size: 20px;
+        padding-inline: 5px;
+        background-color: transparent;
+        border: 2px solid hsl(345, 95%, 68%);
+        background-color: hsl(236, 15%, 18%);
+        color:hsl(345, 63%, 59%);
+        opacity: .7;
+        transition: all .2s;
+        
+        &:valid,&:focus{
+            outline: 0px;
+            border: 2px solid hsl(345, 95%, 68%);
+            background-color: hsl(236, 15%, 18%);
+            
+            opacity: 1;
+        }
+    }
+}
+.submit{
+    width: 150px;
+    height: 40px;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    border-radius: 10px;
+    background-color: hsl(220, 6%, 9%);
+    border: 2px solid hsl(345, 95%, 68%);
+    color: white;
+    font-size:x-large;
+    letter-spacing: 5px;
+    cursor: pointer;
+    margin-top: 40px;
+}
+
+
+
+
 .header{
     font-size: 25px;
     color: white;  
@@ -98,6 +150,9 @@ $timeColor:hsl(345, 95%, 68%);
     }
 }
 
+
+
+
 @keyframes flip-top{
     100%{
         transform: rotateX(90deg);
@@ -108,8 +163,6 @@ $timeColor:hsl(345, 95%, 68%);
         transform: rotateX(0deg);
     }
 }
-
-
 
 @media screen and (max-width: 900px) {
     .container{
