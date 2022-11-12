@@ -3,12 +3,18 @@ var previousTimeBetweenDates;
 var submit = document.querySelector('.submit');
 var date = document.querySelector('.date').value;
 date = date.split("-");
+date.forEach(element => {
+    console.log(element);
+});
 var countToDate = new Date(date[0],date[1]-1,date[2]);
+console.log(countToDate);
+
 
 submit.addEventListener('click',()=>{
     date = document.querySelector('.date').value;
     dates = date.split('-');
-    countToDate = new Date(date[0],date[1],date[2].substring(0,2));
+    if((new Date(date[0],date[1],date[2].substring(0,2)) - new Date())>0)
+        countToDate = new Date(date[0],date[1],date[2].substring(0,2));
     
 })
 
@@ -17,7 +23,6 @@ if((countToDate - new Date())<0) {
 } else{
     setInterval(() => {
         var currentDate = new Date();
-        console.log((countToDate - currentDate)/86400000)
         var timeBetweenDates = Math.ceil((countToDate - currentDate)/1000);
     
         if(previousTimeBetweenDates !== timeBetweenDates){
@@ -46,7 +51,7 @@ function CardFlip(flipCard,newNumber){
     flipTop.classList.add("flip-top");
     flipBottom.classList.add("flip-bottom");
     
-    if(startNum > 99)
+    if(startNum > 99  && startNum < 999)
     {
         console.log('aaaa');
         topHalf.style.fontSize="75px";
@@ -60,6 +65,20 @@ function CardFlip(flipCard,newNumber){
 
         flipBottom.style.fontSize="75px";
         flipBottom.style.lineHeight="1.6";     
+    } else if(startNum > 999)
+    {
+        console.log('aaaa');
+        topHalf.style.fontSize="50px";
+        topHalf.style.lineHeight="2.4";
+
+        bottomHalf.style.fontSize="50px";
+        bottomHalf.style.lineHeight="2.4";
+
+        flipTop.style.fontSize="50px";
+        flipTop.style.lineHeight="2.4";
+
+        flipBottom.style.fontSize="50px";
+        flipBottom.style.lineHeight="2.4";     
     }
     if(newNumber=== startNum) return
     topHalf.textContent = startNum;

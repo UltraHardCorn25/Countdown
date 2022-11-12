@@ -1,21 +1,34 @@
 <?php
   session_start();
-  $date = $_COOKIE['name'];
-  $date = strtotime($date);
-  $date = date("Y/m/d",$date);
-  $days=0;
-  $hours= 0;
-  $min= 0;
-  $sec= 0;
-  datedif($date,$days,$hours,$min,$sec);
-  
-  // print_r($days);
+  $data = isset($_COOKIE['name']);
+  dateExist($data);
   if(isset($_POST['submit'])){
     $date = filter_input(INPUT_POST,'date',FILTER_SANITIZE_SPECIAL_CHARS);
     setcookie('name',$date);
+    var_dump($date);
     datedif($date,$days,$hours,$min,$sec); 
     $location = 'Location: ' . htmlentities($_SERVER['REQUEST_URI']);
     header($location);
+  }
+  
+  function dateExist($data){
+    if(!$data){
+      $date = date("Y/m/d");
+      $days=0;
+      $hours= 0;
+      $min= 0;
+      $sec= 0;
+    }else {
+      $date = $_COOKIE['name'];
+      $date = strtotime($date);
+      $date = date("Y/m/d",$date);
+      $days=0;
+      $hours= 0;
+      $min= 0;
+      $sec= 0;
+      datedif($date,$days,$hours,$min,$sec);
+      setcookie('name',$date);
+    }
   }
   function datedif($date){
     $currentDate = date_create($date);
@@ -24,8 +37,19 @@
     global $days;$days = $dateDifference->format("%a");
     global $hours;$hours= $dateDifference->format("%h");
     global $min;$min= $dateDifference->format("%i");
-    global $sec;$sec= $dateDifference->format("%s");
-    
+    global $sec;$sec= $dateDifference->format("%s"); 
+  }
+  function dateValue($data){
+    if(!$data){
+      $date = date("Y-m-d");
+      echo $date;
+      
+    }else {
+      $date = $_COOKIE['name'];
+      $date = strtotime($date);
+      $date = date("Y-m-d",$date);
+      echo $date;
+    }
   }
 ?>
 
@@ -49,7 +73,7 @@
   <form action="" method="POST">
     <div class="inputs">
       <label for="date" class="label">Enter your wanted date</label>
-      <input type="date" name="date" class="date" value="<?php echo Date("Y-m-d",strtotime($_COOKIE['name']))?>"min="<?php echo Date("Y-m-d h:i:sa")?>" max="2040-01-01T00:00">
+      <input type="date" name="date" class="date" value="<?php dateValue($data)?>"min="<?php echo Date("Y-m-d")?>" max="2050-01-01">
     </div>
     <input type="submit" name="submit" value="SUBMIT" class="submit">
   </form>

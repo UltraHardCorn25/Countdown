@@ -38,6 +38,7 @@ $timeColor:hsl(345, 95%, 68%);
 .inputs{
     display: grid;
     grid-template-columns: 50% 50%;
+    margin-top: 20px;
     .label {
         color:$textColor;
         font-size: 25px;
@@ -165,19 +166,27 @@ $timeColor:hsl(345, 95%, 68%);
 }
 
 @media screen and (max-width: 900px) {
-    .container{
+    .container,form{
         zoom:.8;
     }
+    
 }
 @media screen and (max-width: 600px) {
-    .container{
+    .container,form{
         zoom:.6;
+    }
+    form {
+       padding: 30px;
     }
 }
 @media screen and (max-width: 425px) {
-    .container{
+    .container,form{
         zoom:.5;
     }
+    form {
+        padding: 30px;
+        margin-top: 50px;
+     }
 }
 // - Dark desaturated blue: hsl(236, 21%, 26%)
 // - Very dark blue: hsl(235, 16%, 14%)

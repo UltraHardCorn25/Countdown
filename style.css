@@ -38,6 +38,7 @@ body::-webkit-scrollbar {
 .inputs {
   display: grid;
   grid-template-columns: 50% 50%;
+  margin-top: 20px;
 }
 .inputs .label {
   color: hsl(237deg, 18%, 59%);
@@ -170,17 +171,24 @@ body::-webkit-scrollbar {
   }
 }
 @media screen and (max-width: 900px) {
-  .container {
+  .container, form {
     zoom: 0.8;
   }
 }
 @media screen and (max-width: 600px) {
-  .container {
+  .container, form {
     zoom: 0.6;
+  }
+  form {
+    padding: 30px;
   }
 }
 @media screen and (max-width: 425px) {
-  .container {
+  .container, form {
     zoom: 0.5;
+  }
+  form {
+    padding: 30px;
+    margin-top: 50px;
   }
 }/*# sourceMappingURL=style.css.map */
