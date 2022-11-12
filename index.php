@@ -1,19 +1,30 @@
 <?php
-  $dateErr=$date='';
   session_start();
+  $date = $_COOKIE['name'];
+  $date = strtotime($date);
+  $date = date("Y/m/d",$date);
   $days=0;
   $hours= 0;
   $min= 0;
   $sec= 0;
+  datedif($date,$days,$hours,$min,$sec);
+  
+  // print_r($days);
   if(isset($_POST['submit'])){
     $date = filter_input(INPUT_POST,'date',FILTER_SANITIZE_SPECIAL_CHARS);
+    setcookie('name',$date);
+    datedif($date,$days,$hours,$min,$sec); 
+    $location = 'Location: ' . htmlentities($_SERVER['REQUEST_URI']);
+    header($location);
+  }
+  function datedif($date){
     $currentDate = date_create($date);
     $currentDate2 = date_create();
     $dateDifference = date_diff($currentDate2,$currentDate);
-    $days= $dateDifference->format("%a");
-    $hours= $dateDifference->format("%h");
-    $min= $dateDifference->format("%i");
-    $sec= $dateDifference->format("%s"); 
+    global $days;$days = $dateDifference->format("%a");
+    global $hours;$hours= $dateDifference->format("%h");
+    global $min;$min= $dateDifference->format("%i");
+    global $sec;$sec= $dateDifference->format("%s");
     
   }
 ?>
@@ -38,7 +49,7 @@
   <form action="" method="POST">
     <div class="inputs">
       <label for="date" class="label">Enter your wanted date</label>
-      <input type="date" name="date" class="date" value="<?php echo $date;?>"min="<?php echo Date("Y-m-d h:i:sa")?>" max="2040-01-01T00:00">
+      <input type="date" name="date" class="date" value="<?php echo Date("Y-m-d",strtotime($_COOKIE['name']))?>"min="<?php echo Date("Y-m-d h:i:sa")?>" max="2040-01-01T00:00">
     </div>
     <input type="submit" name="submit" value="SUBMIT" class="submit">
   </form>

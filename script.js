@@ -3,14 +3,13 @@ var previousTimeBetweenDates;
 var submit = document.querySelector('.submit');
 var date = document.querySelector('.date').value;
 date = date.split("-");
-var countToDate = new Date(date[0],date[1]-1,date[2].substring(0,2));
-console.log(countToDate);
+var countToDate = new Date(date[0],date[1]-1,date[2]);
 
 submit.addEventListener('click',()=>{
-    
+    date = document.querySelector('.date').value;
     dates = date.split('-');
     countToDate = new Date(date[0],date[1],date[2].substring(0,2));
-    console.log(countToDate);
+    
 })
 
 if((countToDate - new Date())<0) {
@@ -46,8 +45,10 @@ function CardFlip(flipCard,newNumber){
     var flipBottom = document.createElement("div");
     flipTop.classList.add("flip-top");
     flipBottom.classList.add("flip-bottom");
+    
     if(startNum > 99)
     {
+        console.log('aaaa');
         topHalf.style.fontSize="75px";
         topHalf.style.lineHeight="1.6";
 

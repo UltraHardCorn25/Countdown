@@ -68,9 +68,9 @@ body::-webkit-scrollbar {
   margin-left: 50%;
   transform: translateX(-50%);
   border-radius: 10px;
-  background-color: hsl(220deg, 6%, 9%);
+  background-color: transparent;
   border: 2px solid hsl(345deg, 95%, 68%);
-  color: white;
+  color: hsl(237deg, 18%, 59%);
   font-size: x-large;
   letter-spacing: 5px;
   cursor: pointer;
