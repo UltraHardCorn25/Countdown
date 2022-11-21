@@ -9,7 +9,7 @@ date.forEach(element => {
 var countToDate = new Date(date[0],date[1]-1,date[2]);
 console.log(countToDate);
 
-
+//submit button change date
 submit.addEventListener('click',()=>{
     date = document.querySelector('.date').value;
     dates = date.split('-');
@@ -18,6 +18,7 @@ submit.addEventListener('click',()=>{
     
 })
 
+//checking if the that is valid or not
 if((countToDate - new Date())<0) {
     flipAllCards(0)
 } else{
@@ -31,15 +32,14 @@ if((countToDate - new Date())<0) {
         previousTimeBetweenDates = timeBetweenDates;
     },250);
 }
-
-
+//giving intervals for cards
 function flipAllCards(time) {
     CardFlip(document.querySelector('.days'),Math.floor((time / 86400)))
     CardFlip(document.querySelector('.hours'),Math.floor((time / 3600) % 24))
     CardFlip(document.querySelector('.minutes'),Math.floor((time / 60) % 60))
     CardFlip(document.querySelector('.seconds'),time % 60)
 }
-
+//fliping car animation
 function CardFlip(flipCard,newNumber){
     var topHalf = flipCard.querySelector('.top');
     var startNum=parseInt(topHalf.textContent);
@@ -104,3 +104,19 @@ function CardFlip(flipCard,newNumber){
 
     flipCard.append(flipTop,flipBottom)
 }
+
+//theme change
+var theme_container = document.querySelector('.scheme-change-container');
+var theme_button = document.querySelector('.circle');
+var clicked = 0;
+theme_container.addEventListener('click',()=>{
+    if(clicked==0){
+        document.querySelector('#stylesheet').href="css/light.css";
+        theme_button.style.left="28px";
+        clicked=1;
+    } else{
+        document.querySelector('#stylesheet').href="css/dark.css";
+        theme_button.style.left="2px";
+        clicked=0;
+    }
+})

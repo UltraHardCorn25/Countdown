@@ -59,7 +59,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="css/style2.css">
+  <link rel="stylesheet" href="css/dark.css" id="stylesheet">
+  <!-- <link rel="stylesheet" href="css/light.css" media="(prefers-color-scheme: light)">
+  <link rel="stylesheet" href="css/dark.css" media="(prefers-color-scheme: dark)"> -->
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -68,6 +71,11 @@
 
 </head>
 <body>
+  <div class="scheme-change-container">
+    <div class="circle">
+
+    </div>
+  </div>
   <img src="images/bg-stars.svg" class="stars">
   <h1 class="header">We're launching soon</h1>
   <form action="" method="POST">
@@ -99,7 +107,7 @@
       <div class="time">SECONDS</div>
     </div>
   </div>
-  <img src="images/pattern-hills.svg" class="mountain">
+  <img class="mountain" >
   
 
   <!-- <div class="attribution">

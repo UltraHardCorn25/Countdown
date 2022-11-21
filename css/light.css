@@ -1,0 +1,59 @@
+body {
+  background-image: url(images/pattern-hills.svg);
+  background: linear-gradient(hsl(33deg, 100%, 11%), hsl(33deg, 88%, 26%), hsl(33deg, 75%, 34%), hsl(33deg, 89%, 79%));
+}
+
+.stars {
+  display: none;
+}
+
+.mountain {
+  content: url("../images/pattern-hills-light.png");
+}
+
+.scheme-change-container {
+  background-color: #711f22;
+}
+.scheme-change-container .circle {
+  background-image: url("../images/sun.png");
+  background-size: cover;
+  width: 22px;
+  height: 22px;
+}
+
+.inputs .label {
+  color: hsl(33deg, 89%, 79%);
+}
+.inputs .date {
+  background-color: transparent;
+  border: 2px solid #9B2226;
+  background-color: #9B2226;
+  color: hsl(33deg, 89%, 79%);
+}
+.inputs .date:valid, .inputs .date:focus {
+  border: 2px solid #9B2226;
+  background-color: #9B2226;
+}
+
+.submit {
+  background-color: transparent;
+  border: 2px solid #9B2226;
+  color: hsl(33deg, 89%, 79%);
+}
+
+.header {
+  color: white;
+}
+
+.container .top, .container .flip-clock .flip-top {
+  background: #9B2226;
+}
+.container .bottom, .container .flip-clock .flip-bottom {
+  background: #711f22;
+}
+.container .numbers, .container .flip-clock .flip-top, .container .flip-clock .flip-bottom {
+  color: hsl(33deg, 89%, 79%);
+}
+.container .time {
+  color: hsl(33deg, 89%, 79%);
+}/*# sourceMappingURL=light.css.map */

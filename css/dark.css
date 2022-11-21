@@ -1,0 +1,48 @@
+body {
+  background: linear-gradient(hsl(266deg, 38%, 12%), hsl(267deg, 32%, 18%), hsl(267deg, 27%, 28%));
+}
+
+.scheme-change-container {
+  background-color: hsl(236deg, 15%, 18%);
+}
+.scheme-change-container .circle {
+  background-image: url("../images/moon.png");
+  background-size: cover;
+}
+
+.mountain {
+  content: url("../images/pattern-hills-dark.svg");
+}
+
+.inputs .label {
+  color: hsl(345deg, 71%, 64%);
+}
+.inputs .date {
+  background-color: transparent;
+  border: 2px solid hsl(345deg, 95%, 68%);
+  background-color: hsl(236deg, 15%, 18%);
+  color: hsl(345deg, 71%, 64%);
+}
+
+.submit {
+  background-color: transparent;
+  border: 2px solid hsl(345deg, 95%, 68%);
+  color: hsl(345deg, 71%, 64%);
+}
+
+.header {
+  color: white;
+}
+
+.container .top, .container .flip-clock .flip-top {
+  background: hsl(236deg, 15%, 18%);
+}
+.container .bottom, .container .flip-clock .flip-bottom {
+  background: hsl(236deg, 21%, 26%);
+}
+.container .numbers, .container .flip-clock .flip-top, .container .flip-clock .flip-bottom {
+  color: hsl(345deg, 71%, 64%);
+}
+.container .time {
+  color: hsl(345deg, 71%, 64%);
+}/*# sourceMappingURL=dark.css.map */

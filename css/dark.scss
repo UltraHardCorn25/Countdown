@@ -1,0 +1,61 @@
+body{
+    background: linear-gradient(hsl(266, 38%, 12%),hsl(267, 32%, 18%),hsl(267, 27%, 28%));
+}
+
+$textColor:hsl(237, 18%, 59%);
+$borderColor:hsl(345, 95%, 68%);
+$textColor:hsl(345, 71%, 64%);
+$bgColor:hsl(236, 15%, 18%);
+$bcColorLight:hsl(236, 21%, 26%);
+.scheme-change-container{
+    background-color: $bgColor;
+    .circle{
+        background-image: url('../images/moon.png');
+        background-size: cover;
+    }
+}
+.mountain {
+    content: url("../images/pattern-hills-dark.svg");
+    
+}
+.inputs{
+    .label {
+        color:$textColor;
+    }
+    .date{
+        background-color: transparent;
+        border: 2px solid $borderColor;
+        background-color: $bgColor;
+        color:$textColor;
+    }
+}
+.submit{
+    background-color: transparent;
+    border: 2px solid $borderColor;
+    color:$textColor;
+}
+
+
+.header{
+    color: white;  
+
+}
+.container{
+    .top,.flip-clock .flip-top{
+        background: $bgColor;
+    }
+    
+    .bottom,.flip-clock .flip-bottom{
+        background: $bcColorLight;
+    }
+    .numbers,.flip-clock .flip-top,.flip-clock .flip-bottom {
+        color: $textColor; 
+    }
+    .time {
+        color: $textColor;
+    }
+}
+
+// - Dark desaturated blue: hsl(236, 21%, 26%)
+// - Very dark blue: hsl(235, 16%, 14%)
+// - Very dark (mostly black) blue: hsl(234, 17%, 12%)
