@@ -23,10 +23,13 @@ $bcColorLight:hsl(236, 21%, 26%);
         color:$textColor;
     }
     .date{
-        background-color: transparent;
         border: 2px solid $borderColor;
         background-color: $bgColor;
         color:$textColor;
+        &:valid,&:focus{
+            outline: none;
+            border: 2px solid $borderColor;
+        }
     }
 }
 .submit{
@@ -55,6 +58,33 @@ $bcColorLight:hsl(236, 21%, 26%);
         color: $textColor;
     }
 }
+.messagge{
+    input{
+        border: 2px solid $borderColor;
+        background-color: $bgColor;
+        color:$textColor;
+        &::placeholder{
+            color:$textColor;
+        }
+    }
+}
+::-webkit-scrollbar{
+	width: 5px;
+}
+.messagge_output_box{
+    background: linear-gradient(hsl(266, 38%, 12%),hsl(265, 26%, 20%));
+    border: 1px solid rgb(6, 0, 13);
+    .messagge_output{
+        color: white;
+        &::-webkit-scrollbar-thumb{
+            background-color: $textColor;
+        }
+    }
+    .close{
+        color: white;
+    }
+}
+
 
 // - Dark desaturated blue: hsl(236, 21%, 26%)
 // - Very dark blue: hsl(235, 16%, 14%)

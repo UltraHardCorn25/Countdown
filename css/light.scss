@@ -64,6 +64,32 @@ body{
         color: $textColor;
     }
 }
+.messagge{
+   
+    input{
+        background-color: transparent;
+        border: 2px solid $borderColor;
+        background-color: $bgLightBlue;
+        color:$textColor;
+        &::placeholder{
+            color:$textColor;
+        }
+    }
+}
+.messagge_output_box{
+    background-image:linear-gradient(hsl(33, 88%, 26%),hsl(33, 75%, 34%),hsl(33, 62%, 61%));
+    border: 1px solid rgb(6, 0, 13);
+    .messagge_output{
+        color: $textColor;
+        text-shadow: 1px 1px hsl(33, 88%, 26%);
+        &::-webkit-scrollbar-thumb{
+            background-color: $bgDarkerBlue;
+        }
+    }
+    .close{
+        color: $bgDarkerBlue;
+    }
+}
 
 // - Dark desaturated blue: hsl(236, 21%, 26%)
 // - Very dark blue: hsl(235, 16%, 14%)

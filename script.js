@@ -20,7 +20,12 @@ submit.addEventListener('click',()=>{
 
 //checking if the that is valid or not
 if((countToDate - new Date())<0) {
-    flipAllCards(0)
+    flipAllCards(0);
+    if(document.querySelector('.dontShow')){}
+    else{   
+        document.querySelector('.messagge_output_box').style.display = "flex";
+        document.querySelector('.overlay').style.display = "flex";
+    }
 } else{
     setInterval(() => {
         var currentDate = new Date();
@@ -34,10 +39,10 @@ if((countToDate - new Date())<0) {
 }
 //giving intervals for cards
 function flipAllCards(time) {
-    CardFlip(document.querySelector('.days'),Math.floor((time / 86400)))
-    CardFlip(document.querySelector('.hours'),Math.floor((time / 3600) % 24))
-    CardFlip(document.querySelector('.minutes'),Math.floor((time / 60) % 60))
-    CardFlip(document.querySelector('.seconds'),time % 60)
+    CardFlip(document.querySelector('.days'),Math.floor((time / 86400)));
+    CardFlip(document.querySelector('.hours'),Math.floor((time / 3600) % 24));
+    CardFlip(document.querySelector('.minutes'),Math.floor((time / 60) % 60));
+    CardFlip(document.querySelector('.seconds'),time % 60);
 }
 //fliping car animation
 function CardFlip(flipCard,newNumber){
@@ -53,7 +58,6 @@ function CardFlip(flipCard,newNumber){
     
     if(startNum > 99  && startNum < 999)
     {
-        console.log('aaaa');
         topHalf.style.fontSize="75px";
         topHalf.style.lineHeight="1.6";
 
@@ -67,7 +71,6 @@ function CardFlip(flipCard,newNumber){
         flipBottom.style.lineHeight="1.6";     
     } else if(startNum > 999)
     {
-        console.log('aaaa');
         topHalf.style.fontSize="50px";
         topHalf.style.lineHeight="2.4";
 
@@ -119,4 +122,10 @@ theme_container.addEventListener('click',()=>{
         theme_button.style.left="2px";
         clicked=0;
     }
+});
+
+
+document.querySelector('.close').addEventListener('click',()=>{
+    document.querySelector('.messagge_output_box').style.display = "none";
+    document.querySelector('.overlay').style.display = "none";
 })

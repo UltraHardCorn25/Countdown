@@ -4,13 +4,16 @@
   dateExist($data);
   if(isset($_POST['submit'])){
     $date = filter_input(INPUT_POST,'date',FILTER_SANITIZE_SPECIAL_CHARS);
+    $messagge = filter_input(INPUT_POST,'messagge',FILTER_SANITIZE_SPECIAL_CHARS);
+    if ($messagge == NULL)
+      $messagge = " ";
+    setcookie('messagge',$messagge);
     setcookie('name',$date);
-    var_dump($date);
-    datedif($date,$days,$hours,$min,$sec); 
+    datedif($date); 
     $location = 'Location: ' . htmlentities($_SERVER['REQUEST_URI']);
     header($location);
   }
-  
+ 
   function dateExist($data){
     if(!$data){
       $date = date("Y/m/d");
@@ -51,6 +54,18 @@
       echo $date;
     }
   }
+  function getMessagge(){
+  if (!isset($_COOKIE['messagge'])) {
+    echo ('dontShow');
+  }
+
+  }
+  function postMessagge(){
+    if(!isset($_COOKIE['messagge']) || $_COOKIE['messagge']==" " )
+      echo("No messagge writen");
+    else
+      echo ( $_COOKIE['messagge']);
+  }
 ?>
 
 
@@ -77,11 +92,14 @@
     </div>
   </div>
   <img src="images/bg-stars.svg" class="stars">
-  <h1 class="header">We're launching soon</h1>
+  <h1 class="header">Personal countdown</h1>
   <form action="" method="POST">
     <div class="inputs">
       <label for="date" class="label">Enter your wanted date</label>
       <input type="date" name="date" class="date" value="<?php dateValue($data)?>"min="<?php echo Date("Y-m-d")?>" max="2050-01-01">
+    </div>
+    <div class="messagge">
+      <input type="text" name="messagge" placeholder="Messagge for the date">
     </div>
     <input type="submit" name="submit" value="SUBMIT" class="submit">
   </form>
@@ -109,12 +127,12 @@
   </div>
   <img class="mountain" >
   
-
-  <!-- <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
-  </div> -->
-
+  
+  <div class="overlay"></div>
+  <div class="messagge_output_box"> 
+    <p class="messagge_output <?php getMessagge() ?>"><?php postMessagge() ?></p>
+    <button class="close">X</button>
+  </div>
   <script src="script.js"></script>
 </body>
 </html>

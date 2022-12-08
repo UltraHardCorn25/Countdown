@@ -17,6 +17,7 @@ body {
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
+  position: relative;
 }
 
 body::-webkit-scrollbar {
@@ -24,6 +25,7 @@ body::-webkit-scrollbar {
 }
 
 .scheme-change-container {
+  z-index: 1000000;
   top: 30px;
   right: 30px;
   position: absolute;
@@ -44,6 +46,7 @@ body::-webkit-scrollbar {
 }
 
 .mountain {
+  z-index: 10;
   width: 100%;
   height: 20%;
   position: absolute;
@@ -56,6 +59,10 @@ body::-webkit-scrollbar {
   position: absolute;
   top: 0;
   z-index: -1;
+}
+
+form {
+  position: relative;
 }
 
 .inputs {
@@ -71,6 +78,9 @@ body::-webkit-scrollbar {
   height: 30px;
   font-size: 20px;
   padding-inline: 5px;
+}
+.inputs .date:valid, .inputs .date:focus {
+  outline: none;
 }
 
 .submit {
@@ -104,6 +114,7 @@ body::-webkit-scrollbar {
   -moz-column-gap: 20px;
        column-gap: 20px;
   grid-area: 4/1;
+  position: relative;
 }
 .container .top, .container .flip-clock .flip-top {
   overflow: hidden;
@@ -152,6 +163,80 @@ body::-webkit-scrollbar {
   transform: rotateX(90deg);
 }
 
+.messagge {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 350px;
+  z-index: 100;
+}
+.messagge input {
+  width: 400px;
+  height: 30px;
+  font-size: 22px;
+  padding-inline: 5px;
+}
+.messagge input:valid, .messagge input:focus {
+  outline: none;
+}
+
+.overlay {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background-color: black;
+  opacity: 0.2;
+  z-index: 10000;
+  display: none;
+}
+
+.messagge_output_box {
+  border-radius: 2vw;
+  z-index: 100000;
+  position: fixed;
+  width: 500px;
+  height: 300px;
+  background: black;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  display: none;
+  overflow: hidden;
+}
+.messagge_output_box .messagge_output {
+  overflow: scroll;
+  overflow-x: hidden;
+  word-wrap: break-word;
+  font-size: 25px;
+  text-align: center;
+  max-width: 80%;
+  max-height: 80%;
+  scroll-behavior: smooth;
+  padding: 5px;
+}
+.messagge_output_box .messagge_output::-webkit-scrollbar {
+  width: 5px;
+}
+.messagge_output_box .messagge_output::-webkit-scrollbar-thumb {
+  background-size: 300% 300%;
+}
+.messagge_output_box .close {
+  width: 50px;
+  height: 50px;
+  font-size: 40px;
+  position: absolute;
+  background-color: transparent;
+  border: 0;
+  top: 5px;
+  right: 5px;
+}
+
 @-webkit-keyframes flip-top {
   100% {
     transform: rotateX(90deg);
@@ -173,25 +258,113 @@ body::-webkit-scrollbar {
     transform: rotateX(0deg);
   }
 }
-@media screen and (max-width: 900px) {
-  .container, form {
+@media screen and (max-width: 750px) {
+  .inputs {
+    justify-content: center;
+    grid-template-columns: 70%;
+    gap: 20px;
+  }
+  .inputs .label {
+    text-align: center;
+  }
+  .container {
     zoom: 0.8;
+    top: 100px;
+  }
+  .messagge {
+    top: 400px;
+  }
+  .messagge_output_box {
+    width: 450px;
+    height: 250px;
   }
 }
-@media screen and (max-width: 600px) {
-  .container, form {
+@media screen and (max-width: 550px) {
+  .inputs {
+    justify-content: center;
+    grid-template-columns: 70%;
+    gap: 20px;
+  }
+  .inputs .label {
+    text-align: center;
+  }
+  .container {
+    zoom: 0.7;
+    top: 100px;
+  }
+  .messagge {
+    top: 350px;
+    align-items: flex-end;
+  }
+  .messagge input {
+    width: 350px;
+    font-size: 18px;
+  }
+  .messagge_output_box {
+    width: 400px;
+    height: 200px;
+  }
+  .messagge_output_box .messagge_output {
+    font-size: 20px;
+  }
+}
+@media screen and (max-width: 480px) {
+  .inputs {
+    justify-content: center;
+    grid-template-columns: 75%;
+    gap: 20px;
+  }
+  .inputs .label {
+    text-align: center;
+  }
+  .container {
     zoom: 0.6;
+    top: 100px;
   }
-  form {
-    padding: 30px;
+  .messagge_output_box {
+    width: 380px;
+    height: 180px;
+  }
+  .messagge_output_box .messagge_output {
+    font-size: 20px;
   }
 }
-@media screen and (max-width: 425px) {
-  .container, form {
-    zoom: 0.5;
+@media screen and (max-width: 400px) {
+  .inputs {
+    justify-content: center;
+    grid-template-columns: 70%;
+    gap: 20px;
+  }
+  .inputs .label {
+    text-align: center;
+    font-size: medium;
   }
   form {
-    padding: 30px;
-    margin-top: 50px;
+    top: 50px;
+  }
+  .container {
+    zoom: 0.5;
+    top: 200px;
+  }
+  .messagge {
+    grid-row-start: 6;
+    align-items: flex-end;
+  }
+  .messagge input {
+    width: 280px;
+    font-size: 15px;
+  }
+  .header {
+    padding: 20px;
+  }
+  .messagge_output_box {
+    width: 330px;
+    height: 130px;
+  }
+  .messagge_output_box .messagge_output {
+    font-size: 20px;
+  }
+  .messagge_output_box .close {
+    font-size: 30px;
   }
 }/*# sourceMappingURL=style2.css.map */

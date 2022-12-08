@@ -18,10 +18,13 @@ body {
   color: hsl(345deg, 71%, 64%);
 }
 .inputs .date {
-  background-color: transparent;
   border: 2px solid hsl(345deg, 95%, 68%);
   background-color: hsl(236deg, 15%, 18%);
   color: hsl(345deg, 71%, 64%);
+}
+.inputs .date:valid, .inputs .date:focus {
+  outline: none;
+  border: 2px solid hsl(345deg, 95%, 68%);
 }
 
 .submit {
@@ -45,4 +48,37 @@ body {
 }
 .container .time {
   color: hsl(345deg, 71%, 64%);
+}
+
+.messagge input {
+  border: 2px solid hsl(345deg, 95%, 68%);
+  background-color: hsl(236deg, 15%, 18%);
+  color: hsl(345deg, 71%, 64%);
+}
+.messagge input::-moz-placeholder {
+  color: hsl(345deg, 71%, 64%);
+}
+.messagge input:-ms-input-placeholder {
+  color: hsl(345deg, 71%, 64%);
+}
+.messagge input::placeholder {
+  color: hsl(345deg, 71%, 64%);
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+.messagge_output_box {
+  background: linear-gradient(hsl(266deg, 38%, 12%), hsl(265deg, 26%, 20%));
+  border: 1px solid rgb(6, 0, 13);
+}
+.messagge_output_box .messagge_output {
+  color: white;
+}
+.messagge_output_box .messagge_output::-webkit-scrollbar-thumb {
+  background-color: hsl(345deg, 71%, 64%);
+}
+.messagge_output_box .close {
+  color: white;
 }/*# sourceMappingURL=dark.css.map */
